@@ -43,6 +43,9 @@ class KoskoNetwork:
             case = 0
         elif len(vector) == len(self.__dataX[0]):
             case = 1
+        else:
+            print("Вектор не принадлежит ни одному из множеств dataX, dataY")
+            return vector
 
         vector = np.array(vector)
         test_prev = []
