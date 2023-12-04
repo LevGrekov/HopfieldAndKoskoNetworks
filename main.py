@@ -28,8 +28,9 @@ import DataLoader as dl
 from KoskoNetwork.Kosko import KoskoNetwork
 dataX = [[-1,1,-1,1,1,1,1,-1],[1,-1,1,1,1,1,1,1],[1,-1,-1,-1,1,1,-1,1]]
 dataY = dl.DataLoader.get_associated_set(dataX)
+
 h = KoskoNetwork(dataX, dataY)
-a = h.recognize([-1, -1, 1, -1, -1, 1, 1, -1])
+a = h.recognize([-1,1,-1,-1,1,1,1,-1])
 print(a, "\n")
-b = h.recognize([-1, -1, -1, -1,1])
+b = h.recognize([-1, -1, -1, -1])
 print(b)

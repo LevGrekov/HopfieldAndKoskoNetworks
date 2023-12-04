@@ -39,10 +39,13 @@ class KoskoNetwork:
 
     def recognize(self, vector):
         case = None
+        case_len = None
         if len(vector) == len(self.__dataY[0]):
             case = 0
+            case_len = len(self.__dataX[0])
         elif len(vector) == len(self.__dataX[0]):
             case = 1
+            case_len = len(self.__dataY[0])
         else:
             print("Вектор не принадлежит ни одному из множеств dataX, dataY")
             return vector
@@ -52,7 +55,9 @@ class KoskoNetwork:
         count = 0
         w = np.copy(self.__w)
         while not self.__is_in_res(vector, test_prev):
-            test_prev.append(np.copy(vector))
+            if len(vector) == case_len:
+                test_prev.append(np.copy(vector))
+
             if case == 0:
                 w = w.T
                 vector = self.activate(np.dot(w, vector))
