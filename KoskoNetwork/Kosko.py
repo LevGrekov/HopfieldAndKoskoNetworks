@@ -53,6 +53,7 @@ class KoskoNetwork:
         vector = np.array(vector)
         test_prev = []
         count = 0
+        #пиши у себя
         w = np.copy(self.__w)
         while not self.__is_in_res(vector, test_prev):
             if len(vector) == case_len:
@@ -67,8 +68,7 @@ class KoskoNetwork:
             count += 1
 
         if (self.__is_in_set(vector, self.__dataX) is not None) or (self.__is_in_set(vector, self.__dataY) is not None):
-            print("Образ распознан")
+            print("Образ распознан  на итерации", count)
         else:
             print("Образ не распознан")
         return vector
-
